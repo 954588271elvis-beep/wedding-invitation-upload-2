@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Elvis & Zoey · Wedding Invitation</title>
+  <style>
+    *{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#171310;color:#523232}button{font:inherit}
+    .app{position:relative;width:min(100vw,calc(100vh * 390 / 848));height:min(100vh,calc(100vw * 848 / 390));margin:auto;top:50%;transform:translateY(-50%);overflow:hidden;background:#f4efe7;box-shadow:0 20px 80px #0008}
+    .screen{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .65s ease;overflow:hidden}.screen.active{opacity:1;visibility:visible;z-index:2}
+    .full{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.cover-title{position:absolute;left:10.3%;top:15.5%;width:79.4%;height:16.8%;object-fit:cover}.date-crop{position:absolute;left:0;top:62.75%;width:100%;height:26%;overflow:hidden}.date-crop img{width:100%;height:100%;object-fit:contain}
+    .next{position:absolute;left:40%;bottom:2.1%;width:20%;height:22px;border:0;background:#998c7d;border-radius:99px;cursor:pointer;display:grid;place-items:center;padding:0}.next img{width:100%;height:100%;object-fit:fill}.next.cover-next{left:50%;width:78px;height:18px;transform:translateX(-50%);background:transparent}.next:focus-visible,.pill:focus-visible,.close:focus-visible{outline:3px solid #fff;outline-offset:3px}
+    .portrait{position:absolute;left:17.0513%;top:20.2712%;width:65.1026%;height:41.5566%;object-fit:cover}.frame-mask{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.intro-img{position:absolute;left:13.3333%;top:7.9009%;width:73.8462%;height:2.2406%;object-fit:fill}.names-img{position:absolute;left:28.2051%;top:66.6274%;width:43.3333%;height:6.3679%;object-fit:fill}
+    #s2 .intro-img,#s2 .names-img{opacity:0;-webkit-mask-image:radial-gradient(ellipse at center,#000 0 34%,rgba(0,0,0,.82) 49%,rgba(0,0,0,.28) 64%,transparent 78%);mask-image:radial-gradient(ellipse at center,#000 0 34%,rgba(0,0,0,.82) 49%,rgba(0,0,0,.28) 64%,transparent 78%);-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:0% 0%;mask-size:0% 0%;filter:blur(2.2px);transform:translateY(-10px);will-change:opacity,transform,-webkit-mask-size,mask-size}
+    #s2.active .intro-img{animation:p3InkReveal 1.17s cubic-bezier(.22,.58,.24,1) forwards,p3MoveDown 1.17s cubic-bezier(.16,1,.3,1) forwards}
+    #s2.active .names-img{animation:p3InkReveal 1.17s cubic-bezier(.22,.58,.24,1) .2s forwards,p3MoveDown 1.17s cubic-bezier(.16,1,.3,1) .2s forwards}
+    .details-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.details{position:absolute;inset:0;text-align:center}.details h1{margin:5.8vh 0 0;font:700 clamp(42px,7vh,58px) Georgia;text-transform:uppercase}.details-logo{width:25px;height:32px;margin-top:3.5vh}.quote{margin:2vh 0 0;font:italic clamp(18px,3vh,26px) cursive}.schedule{margin:4.2vh auto 0;width:76%;color:#8d7d6e}.schedule strong{display:block;color:#523232;font:17px serif;margin-bottom:10px}.events{display:grid;grid-template-columns:1fr 1fr 1fr}.events div+div{border-left:1px solid #8d7d6e}.events span{display:block;font:16px serif}.events time{display:block;font:12px sans-serif;letter-spacing:3px;margin-top:5px}.info{margin:8vh auto 0;font:16px/1.9 serif}.phones{margin-top:2vh;font:14px sans-serif}.actions{position:absolute;left:6%;right:6%;bottom:4.5%;display:flex;gap:2.2%}.pill{flex:1;border:0;border-radius:999px;background:#8d7d6e;color:white;padding:16px 8px;font-size:16px;letter-spacing:2px;cursor:pointer}.toast{position:absolute;left:50%;top:66.667%;transform:translateX(-50%) translateY(7px);padding:5.6px 11.2px;border-radius:14px;background:#34251fe6;color:white;font:9.1px sans-serif;opacity:0;transition:.25s}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+    .p3-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:fill}.p3-layer{position:absolute;object-fit:fill}.p3-title{left:23.4615%;top:7.1344%;width:53.0769%;height:4.4222%}.p3-quote{left:11.7949%;top:15.4481%;width:76.4744%;height:11.1733%}.p3-schedule{left:16.1538%;top:29.5991%;width:67.6923%;height:8.1368%}.p3-info{left:14.359%;top:44.3986%;width:71.4103%;height:11.2028%}.p3-action{position:absolute;top:89.3278%;width:38.4615%;height:5.3066%;border:0;background:transparent;padding:0;cursor:pointer}.p3-action img{display:block;width:100%;height:100%;object-fit:fill}.p3-copy{left:8.9744%}.p3-more{left:52.5641%}.p3-action:focus-visible{outline:3px solid white;outline-offset:3px}
+    #s3 .p3-layer,#s3 .p3-action{opacity:0;-webkit-mask-image:radial-gradient(ellipse at center,#000 0 34%,rgba(0,0,0,.82) 49%,rgba(0,0,0,.28) 64%,transparent 78%);mask-image:radial-gradient(ellipse at center,#000 0 34%,rgba(0,0,0,.82) 49%,rgba(0,0,0,.28) 64%,transparent 78%);-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;-webkit-mask-size:0% 0%;mask-size:0% 0%;filter:blur(2.2px)}
+    #s3.active .p3-title{animation:p3InkReveal 1.17s cubic-bezier(.22,.58,.24,1) forwards,p3MoveDown 1.17s cubic-bezier(.16,1,.3,1) forwards}
+    #s3.active .p3-quote{animation:p3InkReveal 1.17s cubic-bezier(.22,.58,.24,1) .2s forwards,p3MoveDown 1.17s cubic-bezier(.16,1,.3,1) .2s forwards}
+    #s3.active .p3-schedule{animation:p3InkReveal 1.17s cubic-bezier(.22,.58,.24,1) .4s forwards,p3MoveDown 1.17s cubic-bezier(.16,1,.3,1) .4s forwards}
+    #s3.active .p3-info{animation:p3InkReveal 1.17s cubic-bezier(.22,.58,.24,1) .6s forwards,p3MoveDown 1.17s cubic-bezier(.16,1,.3,1) .6s forwards}
+    #s3.active .p3-action{animation:p3InkReveal 1.17s cubic-bezier(.22,.58,.24,1) .8s forwards}
+    @keyframes p3InkReveal{0%{opacity:0;-webkit-mask-size:0% 0%;mask-size:0% 0%;filter:blur(2.2px)}35%{opacity:.5;filter:blur(1.25px)}72%{opacity:.9;filter:blur(.35px)}100%{opacity:1;-webkit-mask-size:230% 390%;mask-size:230% 390%;filter:blur(0)}}
+    @keyframes p3MoveDown{0%{transform:translateY(-10px)}100%{transform:translateY(0)}}
+    .modal{position:absolute;inset:0;z-index:5;background:#000b;opacity:0;visibility:hidden;transition:.35s}.modal.open{opacity:1;visibility:visible}.modal-card{position:absolute;left:4.487%;top:12.382%;width:91.026%;height:70.696%;object-fit:fill;filter:drop-shadow(0 12px 20px #0005);pointer-events:none}.close{position:absolute;left:45.897%;top:73.88%;width:8.205%;height:3.774%;padding:0;border:0;background:transparent;cursor:pointer}.close img{display:block;width:100%;height:100%;object-fit:contain}
+    .ink{position:absolute;z-index:9;width:26px;height:23px;border-radius:46% 54% 42% 58%/55% 43% 57% 45%;pointer-events:none;background:radial-gradient(ellipse at 44% 46%,#f5f0e8 0 28%,#eee6db 42%,rgba(207,190,175,.82) 57%,rgba(162,137,120,.26) 69%,transparent 78%);box-shadow:-16px 11px 0 rgba(238,228,216,.68),18px -8px 0 rgba(213,197,183,.48),12px 17px 0 rgba(244,237,228,.72);filter:blur(4px);transform:translate(-50%,-50%) scale(.05) rotate(-5deg);opacity:0}.ink.run{animation:ink 1.9s cubic-bezier(.16,.66,.18,1) forwards}@keyframes ink{0%{opacity:0;filter:blur(6px);transform:translate(-50%,-50%) scale(.05) rotate(-5deg)}12%{opacity:.44}38%{opacity:.88;filter:blur(4px);transform:translate(-50%,-50%) scale(18) rotate(2deg)}55%{opacity:1;filter:blur(2.5px);transform:translate(-50%,-50%) scale(38) rotate(-1deg)}68%{opacity:.96;transform:translate(-50%,-50%) scale(49) rotate(1deg)}84%{opacity:.48;filter:blur(5px)}100%{opacity:0;filter:blur(8px);transform:translate(-50%,-50%) scale(58) rotate(0)}}
+    @media(max-height:680px){.info{margin-top:5vh}.schedule{margin-top:2vh}.quote{margin-top:1vh}}
+    @media(prefers-reduced-motion:reduce){.screen,.modal{transition:none}.ink.run{animation-duration:.1s}#s2.active .intro-img,#s2.active .names-img,#s3.active .p3-layer,#s3.active .p3-action{animation-duration:.1s;animation-delay:0s}}
+  </style>
+</head>
+<body><main class="app" aria-label="婚礼邀请函">
+  <section class="screen active" id="s1" aria-label="封面">
+    <video class="full" src="assets/新锐等级12_副本2.mp4" autoplay muted loop playsinline webkit-playsinline="true" x5-playsinline="true" preload="auto" aria-label="婚礼邀请函动态背景"></video><div class="date-crop"><img src="assets/主页日期.png" alt="婚礼标志与日期 2026.10.02"></div><img class="cover-title" src="assets/cover-title.png" alt="Wedding Invitation"><button class="next cover-next" data-next="s2" aria-label="进入邀请函"><img src="assets/下一页.png" alt=""></button>
+  </section>
+  <section class="screen" id="s2" aria-label="新人介绍">
+    <video class="frame-mask" src="assets/第二幕.mp4" autoplay muted loop playsinline preload="auto" aria-label="新人介绍动态背景"></video><img class="intro-img" src="assets/邀请语.png" alt="愿与珍贵的您，共同分享我们的幸福时刻"><img class="names-img" src="assets/姓名.png" alt="Elvis 杨浩与 Zoey 孙思曼"><button class="next cover-next" data-next="s3" aria-label="查看婚礼详情"><img src="assets/figma-page2-next.svg" alt=""></button>
+  </section>
+  <section class="screen" id="s3" aria-label="婚礼详情">
+    <img class="p3-bg" src="assets/底图.png" alt="白色浮雕婚礼背景"><img class="p3-layer p3-title" src="assets/page3-title.png" alt="Details"><img class="p3-layer p3-quote" src="assets/page3-quote.png" alt="Only love can stand the test of time"><img class="p3-layer p3-schedule" src="assets/page3-schedule.png" alt="婚礼流程"><img class="p3-layer p3-info" src="assets/page3-info.png" alt="婚礼时间、地点与联系电话"><button class="p3-action p3-copy" id="copy" aria-label="复制地址"><img src="assets/page3-copy.png" alt=""></button><button class="p3-action p3-more" id="more" aria-label="其它事项"><img src="assets/page3-more.png" alt=""></button><div class="toast" id="toast" role="status">地址已复制</div>
+  </section>
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="其它事项"><img class="modal-card" src="assets/modal-latest.png" alt="其它事项：着装要求、仪式签到与现场抽奖说明"><button class="close" id="close" aria-label="关闭"><img src="assets/modal-close-latest.png" alt=""></button></div>
+  <div class="ink" id="ink"></div>
+</main>
+<audio id="bgm" src="assets/海鸥-逃跑计划.mp3" autoplay loop preload="auto" playsinline webkit-playsinline="true" x5-playsinline="true" x5-video-player-type="h5-page"></audio>
+<script>
+  const bgm=document.querySelector('#bgm');
+  function startBgm(){bgm.play().then(()=>{document.removeEventListener('pointerdown',startBgm);document.removeEventListener('touchstart',startBgm)}).catch(()=>{})}
+  startBgm();
+  document.addEventListener('WeixinJSBridgeReady',startBgm,false);
+  document.addEventListener('DOMContentLoaded',startBgm,{once:true});
+  window.addEventListener('pageshow',startBgm);
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden)startBgm()});
+  document.addEventListener('pointerdown',startBgm,{passive:true});document.addEventListener('touchstart',startBgm,{passive:true});
+  const screens=[...document.querySelectorAll('.screen')],ink=document.querySelector('#ink');
+  let changing=false;
+  function activate(id){screens.forEach(s=>s.classList.toggle('active',s.id===id));screens.forEach(s=>s.querySelectorAll('video').forEach(v=>s.id===id?v.play().catch(()=>{}):v.pause()));changing=false}
+  function show(id,withInk=false,x=195,y=815){if(changing)return;changing=true;if(withInk){ink.style.left=x+'px';ink.style.top=y+'px';ink.classList.remove('run');void ink.offsetWidth;ink.classList.add('run');setTimeout(()=>activate(id),930)}else activate(id)}
+  document.querySelectorAll('[data-next]').forEach(b=>b.addEventListener('click',e=>show(b.dataset.next,b.dataset.next==='s2',e.offsetX+b.offsetLeft,e.offsetY+b.offsetTop)));
+  const modal=document.querySelector('#modal'),more=document.querySelector('#more'),close=document.querySelector('#close');more.onclick=()=>{modal.classList.add('open');close.focus()};function closeModal(){modal.classList.remove('open');more.focus()}close.onclick=closeModal;modal.addEventListener('click',e=>{if(e.target===modal)closeModal()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open'))closeModal()});
+  const app=document.querySelector('.app');let touchX=0,touchY=0;
+  app.addEventListener('touchstart',e=>{if(e.touches.length!==1)return;touchX=e.touches[0].clientX;touchY=e.touches[0].clientY},{passive:true});
+  app.addEventListener('touchend',e=>{if(modal.classList.contains('open')||!e.changedTouches.length)return;const dx=e.changedTouches[0].clientX-touchX,dy=e.changedTouches[0].clientY-touchY;if(Math.abs(dy)<50||Math.abs(dy)<Math.abs(dx)*1.2)return;const index=screens.findIndex(s=>s.classList.contains('active'));if(dy<0&&index<screens.length-1)show(screens[index+1].id,index===0,app.clientWidth/2,app.clientHeight*.96);else if(dy>0&&index>0)show(screens[index-1].id)},{passive:true});
+  document.querySelector('#copy').onclick=async()=>{const t='湖南省常德市武陵区泉水路198号 柳园锦江酒店';try{await navigator.clipboard.writeText(t)}catch{const a=document.createElement('textarea');a.value=t;document.body.append(a);a.select();document.execCommand('copy');a.remove()}const toast=document.querySelector('#toast');toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),1600)};
+  activate('s1');
+</script></body></html>
