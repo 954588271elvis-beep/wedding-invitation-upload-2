@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <link rel="preload" href="assets/story-video.mp4" as="video" type="video/mp4">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23523232'/%3E%3Ctext x='32' y='43' text-anchor='middle' font-size='32' fill='%23f4efe7'%3EEZ%3C/text%3E%3C/svg%3E">
   <title>Elvis & Zoey · Wedding Invitation</title>
   <style>
     *{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#171310;color:#523232}button{font:inherit}
@@ -36,15 +36,15 @@
     <video class="full" src="assets/cover-video.mp4" autoplay muted loop playsinline webkit-playsinline="true" x5-playsinline="true" x5-video-player-type="h5-page" preload="auto" aria-label="婚礼邀请函动态背景"></video><div class="date-crop"><img src="assets/主页日期.png" alt="婚礼标志与日期 2026.10.02"></div><img class="cover-title" src="assets/cover-title.png" alt="Wedding Invitation"><button class="next cover-next" data-next="s2" aria-label="进入邀请函"><img src="assets/下一页.png" alt=""></button>
   </section>
   <section class="screen" id="s2" aria-label="新人介绍">
-    <img class="s2-fallback" src="assets/2.png" alt="新人介绍静态画面"><video class="frame-mask" src="assets/story-video.mp4" autoplay muted loop playsinline webkit-playsinline="true" x5-playsinline="true" x5-video-player-type="h5-page" preload="auto" aria-label="新人介绍动态背景"></video><img class="intro-img" src="assets/邀请语.png" alt="愿与珍贵的您，共同分享我们的幸福时刻"><img class="names-img" src="assets/姓名.png" alt="Elvis 杨浩与 Zoey 孙思曼"><button class="next cover-next" data-next="s3" aria-label="查看婚礼详情"><img src="assets/figma-page2-next.svg" alt=""></button>
+    <img class="s2-fallback" src="assets/page2-fallback.jpg" alt="新人介绍静态画面"><video class="frame-mask" src="assets/story-video.mp4" autoplay muted loop playsinline webkit-playsinline="true" x5-playsinline="true" x5-video-player-type="h5-page" preload="metadata" aria-label="新人介绍动态背景"></video><img class="intro-img" src="assets/邀请语.png" alt="愿与珍贵的您，共同分享我们的幸福时刻"><img class="names-img" src="assets/姓名.png" alt="Elvis 杨浩与 Zoey 孙思曼"><button class="next cover-next" data-next="s3" aria-label="查看婚礼详情"><img src="assets/figma-page2-next.svg" alt=""></button>
   </section>
   <section class="screen" id="s3" aria-label="婚礼详情">
-    <img class="p3-bg" src="assets/底图.png" alt="白色浮雕婚礼背景"><img class="p3-layer p3-title" src="assets/page3-title.png" alt="Details"><img class="p3-layer p3-quote" src="assets/page3-quote.png" alt="Only love can stand the test of time"><img class="p3-layer p3-schedule" src="assets/page3-schedule.png" alt="婚礼流程"><img class="p3-layer p3-info" src="assets/page3-info.png" alt="婚礼时间、地点与联系电话"><button class="p3-action p3-copy" id="copy" aria-label="复制地址"><img src="assets/page3-copy.png" alt=""></button><button class="p3-action p3-more" id="more" aria-label="其它事项"><img src="assets/page3-more.png" alt=""></button><div class="toast" id="toast" role="status">地址已复制</div>
+    <img class="p3-bg" data-src="assets/page3-bg-light.jpg" alt="白色浮雕婚礼背景"><img class="p3-layer p3-title" data-src="assets/page3-title.png" alt="Details"><img class="p3-layer p3-quote" data-src="assets/page3-quote.png" alt="Only love can stand the test of time"><img class="p3-layer p3-schedule" data-src="assets/page3-schedule.png" alt="婚礼流程"><img class="p3-layer p3-info" data-src="assets/page3-info.png" alt="婚礼时间、地点与联系电话"><button class="p3-action p3-copy" id="copy" aria-label="复制地址"><img data-src="assets/page3-copy.png" alt=""></button><button class="p3-action p3-more" id="more" aria-label="其它事项"><img data-src="assets/page3-more.png" alt=""></button><div class="toast" id="toast" role="status">地址已复制</div>
   </section>
-  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="其它事项"><img class="modal-card" src="assets/modal-latest.png" alt="其它事项：着装要求、仪式签到与现场抽奖说明"><button class="close" id="close" aria-label="关闭"><img src="assets/modal-close-latest.png" alt=""></button></div>
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="其它事项"><img class="modal-card" data-src="assets/modal-light.webp" alt="其它事项：着装要求、仪式签到与现场抽奖说明"><button class="close" id="close" aria-label="关闭"><img data-src="assets/modal-close-latest.png" alt=""></button></div>
   <div class="ink" id="ink"></div>
 </main>
-<audio id="bgm" src="assets/海鸥-逃跑计划.mp3" autoplay loop preload="auto" playsinline webkit-playsinline="true" x5-playsinline="true" x5-video-player-type="h5-page"></audio>
+<audio id="bgm" src="assets/music-light.m4a" autoplay loop preload="auto" playsinline webkit-playsinline="true" x5-playsinline="true" x5-video-player-type="h5-page"></audio>
 <script>
   const bgm=document.querySelector('#bgm');
   function startBgm(){bgm.play().then(()=>{document.removeEventListener('pointerdown',startBgm);document.removeEventListener('touchstart',startBgm)}).catch(()=>{})}
@@ -58,21 +58,24 @@
   document.addEventListener('pointerdown',startMedia,{passive:true});document.addEventListener('touchstart',startMedia,{passive:true});
   const screens=[...document.querySelectorAll('.screen')],ink=document.querySelector('#ink');
   let changing=false;
+  function hydrate(root){root.querySelectorAll('[data-src]').forEach(asset=>{asset.src=asset.dataset.src;asset.removeAttribute('data-src')})}
   function prepareVideo(video){video.muted=true;video.defaultMuted=true;video.setAttribute('muted','');video.setAttribute('playsinline','');video.setAttribute('webkit-playsinline','true');if(video.readyState===0)video.load();if(video.readyState<3)video.addEventListener('canplay',()=>video.play().catch(()=>{}),{once:true});video.play().catch(()=>{})}
   function pauseOtherVideos(id){screens.forEach(screen=>{if(screen.id!==id)screen.querySelectorAll('video').forEach(video=>video.pause())})}
-  function prepareScreen(id){const screen=document.querySelector('#'+id);if(!screen)return;screen.classList.add('preparing');screen.querySelectorAll('video').forEach(prepareVideo)}
+  function prepareScreen(id){const screen=document.querySelector('#'+id);if(!screen)return;hydrate(screen);screen.classList.add('preparing');screen.querySelectorAll('video').forEach(prepareVideo)}
   function activate(id){screens.forEach(s=>{s.classList.toggle('active',s.id===id);s.classList.remove('preparing')});screens.forEach(s=>s.querySelectorAll('video').forEach(v=>s.id===id?prepareVideo(v):v.pause()));changing=false}
   function show(id,withInk=false,x=195,y=815){if(changing)return;changing=true;pauseOtherVideos(id);prepareScreen(id);if(withInk){ink.style.left=x+'px';ink.style.top=y+'px';ink.classList.remove('run');void ink.offsetWidth;ink.classList.add('run');setTimeout(()=>activate(id),930)}else activate(id)}
   const app=document.querySelector('.app');
   function navigateTo(id,forward=true){show(id,forward&&id==='s2',app.clientWidth/2,app.clientHeight*.96)}
   document.querySelectorAll('[data-next]').forEach(button=>button.addEventListener('click',()=>navigateTo(button.dataset.next)));
-  const modal=document.querySelector('#modal'),more=document.querySelector('#more'),close=document.querySelector('#close');more.onclick=()=>{modal.classList.add('open');close.focus()};function closeModal(){modal.classList.remove('open');more.focus()}close.onclick=closeModal;modal.addEventListener('click',e=>{if(e.target===modal)closeModal()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open'))closeModal()});
+  const modal=document.querySelector('#modal'),more=document.querySelector('#more'),close=document.querySelector('#close');more.onclick=()=>{hydrate(modal);modal.classList.add('open');close.focus()};function closeModal(){modal.classList.remove('open');more.focus()}close.onclick=closeModal;modal.addEventListener('click',e=>{if(e.target===modal)closeModal()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open'))closeModal()});
   let touchX=0,touchY=0;
   app.addEventListener('touchstart',e=>{if(e.touches.length!==1)return;touchX=e.touches[0].clientX;touchY=e.touches[0].clientY},{passive:true});
   app.addEventListener('touchend',e=>{if(modal.classList.contains('open')||!e.changedTouches.length)return;const dx=e.changedTouches[0].clientX-touchX,dy=e.changedTouches[0].clientY-touchY;if(Math.abs(dy)<50||Math.abs(dy)<Math.abs(dx)*1.2)return;const index=screens.findIndex(s=>s.classList.contains('active'));if(dy<0&&index<screens.length-1)navigateTo(screens[index+1].id,true);else if(dy>0&&index>0)navigateTo(screens[index-1].id,false)},{passive:true});
   document.querySelector('#copy').onclick=async()=>{const t='湖南省常德市武陵区泉水路198号 柳园锦江酒店';try{await navigator.clipboard.writeText(t)}catch{const a=document.createElement('textarea');a.value=t;document.body.append(a);a.select();document.execCommand('copy');a.remove()}const toast=document.querySelector('#toast');toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),1600)};
-  document.querySelectorAll('video').forEach(video=>{video.muted=true;video.defaultMuted=true;video.load()});
-  const storyVideo=document.querySelector('#s2 video');storyVideo.addEventListener('playing',()=>document.querySelector('#s2').classList.add('video-ready'));
-  fetch('assets/story-video.mp4',{cache:'force-cache'}).catch(()=>{});
+  const coverVideo=document.querySelector('#s1 video'),storyVideo=document.querySelector('#s2 video');
+  coverVideo.muted=true;coverVideo.defaultMuted=true;coverVideo.load();
+  storyVideo.muted=true;storyVideo.defaultMuted=true;storyVideo.addEventListener('playing',()=>document.querySelector('#s2').classList.add('video-ready'));
+  function preloadStory(){storyVideo.preload='auto';if(storyVideo.readyState<3)storyVideo.load()}
+  coverVideo.addEventListener('playing',()=>setTimeout(preloadStory,700),{once:true});setTimeout(preloadStory,2500);
   activate('s1');
 </script></body></html>
